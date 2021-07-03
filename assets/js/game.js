@@ -16,9 +16,8 @@ var fight = function(enemyName) {
     while (playerHealth > 0 && enemyHealth > 0) {
         // ask player if they'd like to fight or run
         var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
-        console.log(promptFight.toLowerCase());
         // if player picks "skip" confirm and then stop the loop
-        if (promptFight === "skip" ) {
+        if (promptFight.toLowerCase() === "skip" ) {
             
             // confirm player wants to skip
             var confirmSkip = window.confirm("Are you sure you'd like to quit?");
@@ -42,11 +41,14 @@ var fight = function(enemyName) {
         // check enemy's health
         if (enemyHealth <= 0) {
             window.alert(enemyName + ' has died!');
+
             // award player money for winning
             playerMoney = playerMoney + 20;
+
             // leave while() loop since enemy is dead
             break;
-        } else {
+        } 
+        else {
             window.alert(enemyName + ' still has ' + enemyHealth + ' health left.');
         }
   
@@ -69,6 +71,10 @@ var fight = function(enemyName) {
 
 // function to start a new game
 var startGame = function() {
+    playerHealth = 100;
+    playerAttack = 10;
+    playerMoney = 10;
+
     for (var i = 0; i < enemyNames.length; i++) {
         // if player is still alive, keep fighting
         if (playerHealth > 0) {
@@ -138,7 +144,7 @@ var shop = function() {
     );
 
     // use switch to carry out action
-    switch (shopOptionPrompt) {
+    switch (shopOptionPrompt.toLowerCase()) {
         case "refill":
             if (playerMoney >= 7) {
                 window.alert("Refilling player's health by 20 for 7 dollars.");
