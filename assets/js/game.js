@@ -8,10 +8,6 @@ var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-console.log(enemyNames);
-console.log(enemyNames.length);
-console.log(enemyNames[0]);
-
 var fight = function(enemyName) {
     while (playerHealth > 0 && enemyHealth > 0) {
         // ask player if they'd like to fight or run
